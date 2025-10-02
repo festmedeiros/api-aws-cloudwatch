@@ -353,8 +353,8 @@ app.post('/init-db', async (req, res) => {
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then(() => logInfo('MongoDB conectado', null))
-    .catch(err => logInfo('Erro ao logar mongodb' + err, null, err));
+}).then(() => console.log('MongoDB conectado', null))
+    .catch(err => console.log('Erro ao logar mongodb' + err, null, err));
 
 const UserSchema = new mongoose.Schema({
     name: String,
@@ -641,4 +641,4 @@ app.delete('/usuarios/:id', async (req, res) => {
 //#endregion
 
 swaggerDocs(app);
-app.listen(3000, () => logInfo('Servidor rodando na porta 3000'));
+app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
